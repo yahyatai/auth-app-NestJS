@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+
+  # MongoDB Service for NestJS (Optional if your NestJS app uses MongoDB)
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    volumes:
+      - ./mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
